@@ -27,24 +27,17 @@ export default function CarListScreen({ navigation }) {
     },
     {
       id: 2,
-      name: "Mustang Shelby GT",
+      name: "BMW Cabrio",
       type: "Automatic | 3 seats | Octane",
       distance: "800m (5mins away)",
-      image: "https://cdn-icons-png.flaticon.com/512/741/741407.png",
+      image: "https://cdn-icons-png.flaticon.com/512/743/743131.png",
     },
     {
       id: 3,
-      name: "BMW I8",
+      name: "BMW Cabrio",
       type: "Automatic | 3 seats | Octane",
       distance: "800m (5mins away)",
-      image: "https://cdn-icons-png.flaticon.com/512/2972/2972185.png",
-    },
-    {
-      id: 4,
-      name: "Jaguar Silber",
-      type: "Automatic | 3 seats | Octane",
-      distance: "800m (5mins away)",
-      image: "https://cdn-icons-png.flaticon.com/512/1532/1532688.png",
+      image: "https://cdn-icons-png.flaticon.com/512/743/743131.png",
     },
   ];
 
@@ -92,9 +85,16 @@ export default function CarListScreen({ navigation }) {
                 </View>
                 <Image source={{ uri: car.image }} style={styles.carImage} />
               </View>
-              <TouchableOpacity style={styles.button}>
-                <Text style={styles.buttonText}>View car list</Text>
-              </TouchableOpacity>
+              
+              {/* Buttons Row */}
+              <View style={styles.buttonRow}>
+                <TouchableOpacity style={styles.outlineButton}>
+                  <Text style={styles.outlineButtonText}>Book later</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.fillButton}>
+                  <Text style={styles.fillButtonText}>Ride Now</Text>
+                </TouchableOpacity>
+              </View>
             </View>
           ))}
         </ScrollView>
@@ -208,16 +208,35 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
     marginLeft: 15,
   },
-  button: {
+  buttonRow: {
+    flexDirection: "row",
     marginTop: 16,
+    justifyContent: "space-between",
+  },
+  outlineButton: {
+    flex: 1,
     borderWidth: 1.5,
     borderColor: "#00A86B",
     borderRadius: 10,
     paddingVertical: 14,
+    marginRight: 8,
     alignItems: "center",
   },
-  buttonText: {
+  outlineButtonText: {
     color: "#00A86B",
+    fontSize: isTablet ? 18 : 16,
+    fontWeight: "600",
+  },
+  fillButton: {
+    flex: 1,
+    backgroundColor: "#00A86B",
+    borderRadius: 10,
+    paddingVertical: 14,
+    marginLeft: 8,
+    alignItems: "center",
+  },
+  fillButtonText: {
+    color: "#fff",
     fontSize: isTablet ? 18 : 16,
     fontWeight: "600",
   },
